@@ -1,92 +1,60 @@
 # Proyecto-Final-Sistemas-de-Vision-Industrial
 
-Este proyecto utiliza Python y OpenCV para reconocer gestos de la mano a través de una cámara web y controlar LEDs conectados a una placa Arduino en tiempo real.
+# Control de Matriz LED con Gestos de Mano y Arduino
+Este proyecto utiliza visión por computadora para detectar gestos de mano y controlar un módulo de matriz LED (MAX7219) conectado a un Arduino. Los gestos detectados determinan qué número se muestra en la matriz LED.
 
----
+## Descripción
 
-## Características
-
-- **Reconocimiento de Gestos**:
-  - Detecta el número de dedos levantados (0, 1, 2).
-  - Identifica movimientos de "saludo" (waving).
-- **Control de LEDs**:
-  - Enciende o apaga LEDs en Arduino según el gesto detectado.
-- **Calibración Automática**:
-  - Adapta el sistema a diferentes condiciones de iluminación y tonos de piel.
-- **Retroalimentación Visual**:
-  - Muestra el estado del sistema y gestos detectados en el video en vivo.
-
----
+El programa Python utiliza OpenCV para capturar y procesar los gestos de la mano en tiempo real. Según el número de dedos detectados, se envía un comando al Arduino mediante comunicación serial. El Arduino recibe este comando y muestra el número correspondiente en la matriz LED.
 
 ## Requisitos
 
 ### Hardware
-- Una **cámara web**.
-- Una placa **Arduino** con LEDs conectados.
-- Un cable USB para conectar Arduino a la PC.
+- Placa Arduino (cualquier modelo compatible con MAX7219).
+- Módulo de matriz LED 8x8 controlado por MAX7219.
+- Cámara web.
+- Cable USB para conectar el Arduino.
 
 ### Software
-- **Python 3.x**.
-- **Arduino IDE** (para cargar un sketch en Arduino).
+- Python 3.8 o superior.
+- Arduino IDE.
 
-## Cómo Ejecutar
+## Cómo ejecutar
 
-1. **Configura tu Arduino**:
-   - Conecta tu placa Arduino y carga el siguiente código usando el Arduino IDE:
-     ```cpp
-     void setup() {
-       Serial.begin(9600);
-       pinMode(2, OUTPUT); // LED 1
-       pinMode(3, OUTPUT); // LED 2
-     }
+### 1. Configura el hardware
+- Conecta el módulo de matriz LED 8x8 al Arduino utilizando los siguientes pines:
+  - **DIN** al pin digital 12.
+  - **CS** al pin digital 11.
+  - **CLK** al pin digital 10.
+- Asegúrate de que el Arduino esté conectado a tu computadora mediante un cable USB.
 
-     void loop() {
-       if (Serial.available()) {
-         char command = Serial.read();
-         if (command == '0') {
-           digitalWrite(2, LOW);
-           digitalWrite(3, LOW);
-         } else if (command == '1') {
-           digitalWrite(2, HIGH);
-           digitalWrite(3, LOW);
-         } else if (command == '2') {
-           digitalWrite(2, HIGH);
-           digitalWrite(3, HIGH);
-         }
-       }
-     }
-     ```
+### 2. Configura el Arduino
+- Abre el [Arduino IDE](https://www.arduino.cc/en/software).
+- Copia el código proporcionado en el archivo `arduino_code.ino`.
+- Selecciona el puerto COM de tu Arduino:
+  1. Ve a **Herramientas > Puerto**.
+  2. Selecciona el puerto donde está conectado tu Arduino.
+- Carga el código en tu Arduino haciendo clic en el botón de "Subir" (ícono de flecha hacia la derecha).
 
-2. **Prepara tu entorno en Python**:
-   - Asegúrate de tener las siguientes librerías instaladas:
-     ```bash
-     pip install numpy opencv-python pyserial
-     ```
+### 3. Configura el entorno Python
+- Asegúrate de tener [Python 3.8 o superior](https://www.python.org/) instalado.
 
-3. **Configura el puerto serial**:
-   - Abre el archivo Python del proyecto y verifica que el puerto serial (`COM4` por defecto) coincida con el que utiliza tu Arduino. Si no estás seguro, verifica en el Administrador de Dispositivos o Arduino IDE.
+### 4. Ejecuta el Código
 
-4. **Ejecuta el programa**:
-   - Inicia el programa desde tu terminal o entorno de desarrollo ejecutando el siguiente comando:
-     ```bash
-     python hand_gesture_arduino.py
-     ```
+### 5.  Interactúa con el sistema
+- 0 dedos: Se mostrará el número 0 en la matriz LED.
+- 1 dedo: Se mostrará el número 1 en la matriz LED.
+- 2 dedos: Se mostrará el número 2 en la matriz LED.
 
-5. **Prueba los gestos**:
-   - Coloca tu mano frente a la cámara y realiza los siguientes gestos para controlar los LEDs:
-     - **0 dedos**: Apaga todos los LEDs.
-     - **1 dedo**: Enciende un LED.
-     - **2 dedos**: Enciende dos LEDs.
-     - **Movimiento de la mano**: Detecta un "saludo".
+### 6. Ciera el programa
+- Presionando el botón X
 
-6. **Finaliza el programa**:
-   - Para salir del programa, presiona la tecla **X** en la ventana de la cámara.
-
-
+  
 ### Librerías de Python
-Instala las dependencias con el siguiente comando:
+Instala las siguientes librerías:
 ```bash
 pip install numpy opencv-python pyserial
+
 
 
 
