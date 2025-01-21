@@ -1,1 +1,151 @@
-<h1>TEST pa</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | [Tu Nombre]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s infinite;
+        }
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        nav {
+            background: #444;
+            color: #fff;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+        .skills, .projects {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hola, soy [Tu Nombre] 😎</h1>
+        <p>Estudiante de Ingeniería Mecatrónica | Apasionado por los datos y la tecnología</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <h2>Sobre mí</h2>
+        <p>Soy estudiante de Ingeniería Mecatrónica, con experiencia en programación, análisis de datos y proyectos de ingeniería. Busco seguir aprendiendo y aportar soluciones innovadoras a problemas complejos.</p>
+    </section>
+    <section id="skills">
+        <h2>Habilidades</h2>
+        <div class="skills">
+            <div class="card">
+                <h3>Programación</h3>
+                <p>Python, C, SQL</p>
+            </div>
+            <div class="card">
+                <h3>Herramientas</h3>
+                <p>MATLAB, Power BI, Excel</p>
+            </div>
+            <div class="card">
+                <h3>Gestión</h3>
+                <p>Diplomado en Gestión Empresarial</p>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Proyectos</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Corrección de afinación</h3>
+                <p>Programa en MATLAB para analizar y corregir la afinación de un audio (nota Si de violín).</p>
+            </div>
+            <div class="card">
+                <h3>AC/DC Converter</h3>
+                <p>Diseño y análisis de convertidores en la materia de Interfaces Análogas.</p>
+            </div>
+            <div class="card">
+                <h3>Casos históricos de ingeniería</h3>
+                <p>Investigación de proyectos como el Ford Pinto y el puente Tacoma Narrows.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Puedes encontrarme en:</p>
+        <p><a href="https://github.com/[TuUsuario]" target="_blank">GitHub</a> | <a href="mailto:[tuemail]">Email</a></p>
+    </section>
+    <footer>
+        <p>Creado por [Tu Nombre] &copy; 2025</p>
+    </footer>
+</body>
+</html>
